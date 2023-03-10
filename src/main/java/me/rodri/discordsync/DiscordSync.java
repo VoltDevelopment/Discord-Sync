@@ -15,6 +15,17 @@ public final class DiscordSync extends JavaPlugin {
 
         getServer().getConsoleSender().sendMessage(ChatColor.BLUE + "Volt Development discord");
         getServer().getConsoleSender().sendMessage(ChatColor.BLUE + "Join: https://dsc.gg/voltdev");
+
+        getServer().getPluginManager().registerEvents(new EventListeners(), this);
+
+        DiscordWebhook webhook = new DiscordWebhook(webhookurl);
+        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is starting"));
+        try {
+            webhook.execute();
+        }
+        catch (java.io.IOException e){
+            getLogger().severe(e.getStackTrace().toString());
+        }
     }
 
     @Override
