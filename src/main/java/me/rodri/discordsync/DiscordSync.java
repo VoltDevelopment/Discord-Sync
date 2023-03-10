@@ -31,5 +31,18 @@ public final class DiscordSync extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+
+        String pluginName = getDescription().getName();
+        getServer().getConsoleSender().sendMessage(ChatColor.RED + "Disabling" + pluginName);
+
+        DiscordWebhook webhook = new DiscordWebhook(webhookurl);
+        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is shooting down!"));
+        try {
+            webhook.execute();
+        }
+        catch (java.io.IOException e){
+            getLogger().severe(e.getStackTrace().toString());
+        }
+
     }
 }
