@@ -1,0 +1,6 @@
+name: DiscordSync
+version: '${project.version}'
+main: me.rodri.discordsync.DiscordSync
+api-version: 1.19
+authors: [ rodri ]
+description: Sync every server event in your discord server!
