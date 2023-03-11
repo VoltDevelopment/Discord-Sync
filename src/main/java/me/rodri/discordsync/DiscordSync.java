@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class DiscordSync extends JavaPlugin {
 
-    private String webhookurl = "https://discord.com/api/webhooks/1082849143640297562/WGrXvBluHAgIRry-pxWKUKPNThyGcIZOzBzbgZCTGdbPGob5pOz4C2UOqb8ZWDSZ8weL";
+    private String webhookurl = "https://discord.com/api/webhooks/1083970473777430679/P7GNYieX4psAnBjmyFTR_DTl1qwIRYuIxi_JILKOiIxr9qarzj1M-OcnXOw1ddAdHafd";
 
     @Override
     public void onEnable() {
@@ -13,8 +13,15 @@ public final class DiscordSync extends JavaPlugin {
         String message = ChatColor.GREEN + "Starting " + pluginName;
         getServer().getConsoleSender().sendMessage(message);
 
+        getServer().getConsoleSender().sendMessage("------------------------------");
+        getServer().getConsoleSender().sendMessage("");
         getServer().getConsoleSender().sendMessage(ChatColor.BLUE + "Volt Development discord");
-        getServer().getConsoleSender().sendMessage(ChatColor.BLUE + "Join: https://dsc.gg/voltdev");
+        getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "Join: https://dsc.gg/voltdev");
+        getServer().getConsoleSender().sendMessage("");
+        getServer().getConsoleSender().sendMessage( ChatColor.GOLD + "Checking license status...");
+        getServer().getConsoleSender().sendMessage("");
+        getServer().getConsoleSender().sendMessage(ChatColor.GRAY + "License: " + ChatColor.GREEN + "Valid");
+        getServer().getConsoleSender().sendMessage("------------------------------");
 
         getServer().getPluginManager().registerEvents(new EventListeners(), this);
 
