@@ -10,13 +10,14 @@ public final class DiscordSync extends JavaPlugin {
     @Override
     public void onEnable() {
         String pluginName = getDescription().getName();
-        String message = ChatColor.GREEN + "Starting " + pluginName;
+        String message = ChatColor.GREEN + "Initializing " + pluginName;
         getServer().getConsoleSender().sendMessage(message);
 
         getServer().getConsoleSender().sendMessage("------------------------------");
         getServer().getConsoleSender().sendMessage("");
-        getServer().getConsoleSender().sendMessage(ChatColor.BLUE + "Volt Development discord");
+        getServer().getConsoleSender().sendMessage(ChatColor.BLUE + "DiscordSync " + ChatColor.YELLOW + "Volt Development");
         getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "Join: https://dsc.gg/voltdev");
+        getServer().getConsoleSender().sendMessage(ChatColor.GRAY + "Authors: " + ChatColor.WHITE + "rodri");
         getServer().getConsoleSender().sendMessage("");
         getServer().getConsoleSender().sendMessage( ChatColor.GOLD + "Checking license status...");
         getServer().getConsoleSender().sendMessage("");
