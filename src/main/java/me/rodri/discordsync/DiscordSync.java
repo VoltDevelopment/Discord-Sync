@@ -43,7 +43,18 @@ public final class DiscordSync extends JavaPlugin {
         // Plugin shutdown logic
 
         String pluginName = getDescription().getName();
-        getServer().getConsoleSender().sendMessage(ChatColor.RED + "Disabling" + pluginName);
+
+        getServer().getConsoleSender().sendMessage(ChatColor.RED + "Disabling " + pluginName);
+        getServer().getConsoleSender().sendMessage("------------------------------");
+        getServer().getConsoleSender().sendMessage("");
+        getServer().getConsoleSender().sendMessage(ChatColor.BLUE + "DiscordSync " + ChatColor.YELLOW + "Volt Development");
+        getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "Join: https://dsc.gg/voltdev");
+        getServer().getConsoleSender().sendMessage(ChatColor.GRAY + "Authors: " + ChatColor.WHITE + "rodri");
+        getServer().getConsoleSender().sendMessage("");
+        getServer().getConsoleSender().sendMessage( ChatColor.GOLD + "Plugin is shutting down...");
+        getServer().getConsoleSender().sendMessage("");
+        getServer().getConsoleSender().sendMessage(ChatColor.GRAY + "License: " + ChatColor.GREEN + "Valid");
+        getServer().getConsoleSender().sendMessage("------------------------------");
 
         DiscordWebhook webhook = new DiscordWebhook(webhookurl);
         webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is shutting down!").setColor(Color.RED).setTitle("Server has been stopped!"));
