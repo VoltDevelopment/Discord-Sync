@@ -3,6 +3,8 @@ package me.rodri.discordsync;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.awt.*;
+
 public final class DiscordSync extends JavaPlugin {
 
     private String webhookurl = "https://discord.com/api/webhooks/1083970473777430679/P7GNYieX4psAnBjmyFTR_DTl1qwIRYuIxi_JILKOiIxr9qarzj1M-OcnXOw1ddAdHafd";
@@ -27,7 +29,7 @@ public final class DiscordSync extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EventListeners(), this);
 
         DiscordWebhook webhook = new DiscordWebhook(webhookurl);
-        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is starting"));
+        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is starting").setColor(Color.GREEN).setTitle("Server is starting!"));
         try {
             webhook.execute();
         }
@@ -44,7 +46,7 @@ public final class DiscordSync extends JavaPlugin {
         getServer().getConsoleSender().sendMessage(ChatColor.RED + "Disabling" + pluginName);
 
         DiscordWebhook webhook = new DiscordWebhook(webhookurl);
-        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is shooting down!"));
+        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is shutting down!").setColor(Color.RED).setTitle("Server has been stopped!"));
         try {
             webhook.execute();
         }
