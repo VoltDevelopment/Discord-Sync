@@ -29,11 +29,12 @@ public final class DiscordSync extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EventListeners(), this);
 
         DiscordWebhook webhook = new DiscordWebhook(webhookurl);
-        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is starting at port: " + getServer().getPort() + "\n Version: " + getServer().getVersion() + "\n Bukkit Version: " + getServer().getBukkitVersion()).setColor(Color.GREEN).setTitle("Server is starting!"));
+        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is starting at port: " + getServer().getPort() + " Version: " + getServer().getVersion() + " Bukkit Version: " + getServer().getBukkitVersion()).setColor(Color.GREEN).setTitle("Server is starting!"));
         try {
             webhook.execute();
-        } catch (java.io.IOException e) {
-            e.printStackTrace();
+        }
+        catch (java.io.IOException e){
+            getLogger().severe(e.getStackTrace().toString());
         }
     }
 
@@ -57,8 +58,9 @@ public final class DiscordSync extends JavaPlugin {
         webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is shutting down!").setColor(Color.RED).setTitle("Server has been stopped!"));
         try {
             webhook.execute();
-        } catch (java.io.IOException e) {
-            e.printStackTrace();
+        }
+        catch (java.io.IOException e){
+            getLogger().severe(e.getStackTrace().toString());
         }
 
     }
