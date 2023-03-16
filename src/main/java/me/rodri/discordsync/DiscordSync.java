@@ -1,5 +1,6 @@
 package me.rodri.discordsync;
 
+import me.rodri.discordsync.events.PlayerJoin;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -7,7 +8,7 @@ import java.awt.*;
 
 public final class DiscordSync extends JavaPlugin {
 
-    private String webhookurl = "https://discord.com/api/webhooks/1083970473777430679/P7GNYieX4psAnBjmyFTR_DTl1qwIRYuIxi_JILKOiIxr9qarzj1M-OcnXOw1ddAdHafd";
+    public static String webhookurl = "https://discord.com/api/webhooks/1083970473777430679/P7GNYieX4psAnBjmyFTR_DTl1qwIRYuIxi_JILKOiIxr9qarzj1M-OcnXOw1ddAdHafd";
 
     @Override
     public void onEnable() {
@@ -29,13 +30,19 @@ public final class DiscordSync extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EventListeners(), this);
 
         DiscordWebhook webhook = new DiscordWebhook(webhookurl);
-        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is starting at port: " + getServer().getPort() + " Version: " + getServer().getVersion() + " Bukkit Version: " + getServer().getBukkitVersion()).setColor(Color.GREEN).setTitle("Server is starting!"));
+        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is starting at port: " + getServer().getPort() + " **Version: **" + getServer().getVersion() + " **Bukkit Version: **" + getServer().getBukkitVersion()).setColor(Color.GREEN).setTitle("Server is starting!"));
         try {
             webhook.execute();
         }
         catch (java.io.IOException e){
             getLogger().severe(e.getStackTrace().toString());
         }
+
+        //Listeners
+        getServer().getPluginManager().registerEvents(new PlayerJoin(getLogger()), this);
+
+
+        //Commands
     }
 
     @Override
