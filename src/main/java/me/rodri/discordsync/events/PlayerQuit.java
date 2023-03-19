@@ -14,7 +14,7 @@ public class PlayerQuit implements Listener {
         Player player = event.getPlayer();
 
         DiscordWebhook webhook = new DiscordWebhook(DiscordSync.webhookurl);
-
+        webhook.addEmbed(new DiscordWebhook.EmbedObject().setTitle("Player Disconnected").setDescription(event.getPlayer() + " disconnected from the server." + event.getPlayer().getPlayerTime()).addField("Time played", "asd", false));
 
     }
 
