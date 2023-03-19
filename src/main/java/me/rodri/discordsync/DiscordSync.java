@@ -1,5 +1,6 @@
 package me.rodri.discordsync;
 
+import me.rodri.discordsync.events.EventListeners;
 import me.rodri.discordsync.events.PlayerJoin;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -30,7 +31,7 @@ public final class DiscordSync extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EventListeners(), this);
 
         DiscordWebhook webhook = new DiscordWebhook(webhookurl);
-        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is starting at port: " + getServer().getPort() + " **Version: **" + getServer().getVersion() + " **Bukkit Version: **" + getServer().getBukkitVersion()).setColor(Color.GREEN).setTitle("Server is starting!"));
+        webhook.addEmbed(new DiscordWebhook.EmbedObject().setDescription("The server is starting").addField("Port", getServer().getPort() + "",false).addField("Version", getServer().getVersion() + "", false).addField("Spigot/Bukkit", getServer().getBukkitVersion() + "", false).setColor(Color.GREEN));
         try {
             webhook.execute();
         }
