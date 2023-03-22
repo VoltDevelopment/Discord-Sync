@@ -1,6 +1,7 @@
 package me.rodri.discordsync;
 
 import me.rodri.discordsync.events.EventListeners;
+import me.rodri.discordsync.events.PlayerListeners;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -39,7 +40,7 @@ public final class DiscordSync extends JavaPlugin {
         }
 
         //Listeners
-
+        getServer().getPluginManager().registerEvents(new PlayerListeners(), this);
 
         //Commands
     }
