@@ -2,10 +2,12 @@ package me.rodri.discordsync.events;
 
 import me.rodri.discordsync.DiscordSync;
 import me.rodri.discordsync.DiscordWebhook;
+import org.bukkit.Achievement;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerAchievementAwardedEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -47,7 +49,8 @@ public class PlayerListeners implements Listener {
 
     }
 
-    @EventHandler
+
+    @EventHandler //Player Death webhook
     public void onPlayerDeath(PlayerDeathEvent event){
         Player player = event.getEntity().getPlayer();
 
@@ -61,6 +64,23 @@ public class PlayerListeners implements Listener {
             getLogger().severe(e.getStackTrace().toString());
         }
 
+
+    }
+
+    @EventHandler //Player Achievement webhook
+    public void onAchievementGet(PlayerAchievementAwardedEvent event) {
+        Player player = event.getPlayer();
+        Achievement achievement = event.getAchievement();
+
+        DiscordWebhook webhook = new DiscordWebhook(DiscordSync.webhookurl);
+        webhook.addEmbed(new DiscordWebhook.EmbedObject().setColor(Color.YELLOW).setTitle("Achievement unlocked").setDescription(player.getDisplayName() + "" + achievement.getParent()));
+
+        try {
+            webhook.execute();
+        }
+        catch (java.io.IOException e){
+            getLogger().severe(e.getStackTrace().toString());
+        }
 
     }
 
