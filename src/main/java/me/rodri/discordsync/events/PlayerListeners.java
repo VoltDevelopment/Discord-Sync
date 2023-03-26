@@ -73,15 +73,19 @@ public class PlayerListeners implements Listener {
         Achievement achievement = event.getAchievement();
 
         DiscordWebhook webhook = new DiscordWebhook(DiscordSync.webhookurl);
-        webhook.addEmbed(new DiscordWebhook.EmbedObject().setColor(Color.YELLOW).setTitle("Achievement unlocked").setDescription(player.getDisplayName() + "" + achievement.getParent()));
+        webhook.addEmbed(new DiscordWebhook.EmbedObject()
+                .setColor(Color.YELLOW)
+                .setTitle("Achievement unlocked")
+                .setDescription(player.getName() + " has unlocked the achievement " + achievement.name()));
 
         try {
             webhook.execute();
-        }
-        catch (java.io.IOException e){
+        } catch (java.io.IOException e) {
             getLogger().severe(e.getStackTrace().toString());
         }
-
     }
+
+
+
 
 }
