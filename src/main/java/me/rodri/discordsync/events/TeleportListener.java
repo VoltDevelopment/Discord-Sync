@@ -26,14 +26,13 @@ public class TeleportListener implements Listener {
                 location1.getWorld().getName(), location1.getX(), location1.getY(), location1.getZ());
         String toLocationString = String.format("World: %s" + "X: %.2f  Y: %.2f  Z: %.2f",
                 location2.getWorld().getName(), location2.getX(), location2.getY(), location2.getZ());
-        String tpstring =  "" + player.getDisplayName() + " teleport info " + "From: " + fromLocationString + " To: " + toLocationString;
 
         DiscordWebhook webhook = new DiscordWebhook(DiscordSync.webhookurl);
         webhook.addEmbed(new EmbedObject()
                 .setColor(Color.MAGENTA)
                 .setTitle("New teleport")
-                .setDescription(tpstring));
-
+                .addField("**From**: ",  fromLocationString, true)
+                .addField("**To**: ", toLocationString,true));
         try {
             webhook.execute();
         }
