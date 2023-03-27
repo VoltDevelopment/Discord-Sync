@@ -20,7 +20,7 @@ public class ChatListener implements Listener {
         String message = event.getMessage();
 
         DiscordWebhook webhook = new DiscordWebhook(DiscordSync.webhookurl);
-        webhook.addEmbed(new DiscordWebhook.EmbedObject().setColor(Color.red).setTitle("New chat message").setDescription(player.getDisplayName() +  "" + message));
+        webhook.addEmbed(new DiscordWebhook.EmbedObject().setColor(Color.red).setTitle("New chat message").setDescription(player.getDisplayName() +  " " + message));
 
         try {
             webhook.execute();
