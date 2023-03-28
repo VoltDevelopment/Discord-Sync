@@ -22,9 +22,9 @@ public class TeleportListener implements Listener {
         Location location2 = event.getTo();
         PlayerTeleportEvent.TeleportCause cause = event.getCause();
 
-        String fromLocationString = String.format("World: %s" + "X: %.2f  Y: %.2f  Z: %.2f",
+        String fromLocationString = String.format("World: %s " + "X: %.2f  Y: %.2f  Z: %.2f",
                 location1.getWorld().getName(), location1.getX(), location1.getY(), location1.getZ());
-        String toLocationString = String.format("World: %s" + "X: %.2f  Y: %.2f  Z: %.2f",
+        String toLocationString = String.format("World: %s " + "X: %.2f  Y: %.2f  Z: %.2f",
                 location2.getWorld().getName(), location2.getX(), location2.getY(), location2.getZ());
 
         DiscordWebhook webhook = new DiscordWebhook(DiscordSync.webhookurl);
