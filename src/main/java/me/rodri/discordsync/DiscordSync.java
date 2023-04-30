@@ -8,7 +8,7 @@ import java.awt.*;
 
 public final class DiscordSync extends JavaPlugin {
 
-    public static String webhookurl = "https://discord.com/api/webhooks/1083970473777430679/P7GNYieX4psAnBjmyFTR_DTl1qwIRYuIxi_JILKOiIxr9qarzj1M-OcnXOw1ddAdHafd";
+    public static String webhookurl = "https://your.webhook/url";
 
     @Override
     public void onEnable() {
